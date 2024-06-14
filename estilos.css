@@ -1,0 +1,83 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    height:100vh;
+    background-color:#FF8361;
+}
+
+#contenedor-principal{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    width:30%;
+    height:90vh;
+    border-radius:5%;
+    background-color:#21242D;
+    overflow:hidden;
+}
+    
+#formulario{
+    display:flex;
+    justify-content:right;
+    align-items:end;
+    width:95%;
+    height:30%;
+    background-color:#21242D;
+}
+
+#campo{
+    font-size:30px;
+    width:100%;
+    border:none;
+    background-color:#21242D;
+    color:#ffffff;
+    text-align:end;
+}
+
+#campo:focus{
+    border:none;
+}
+
+#botones{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
+    gap:15px;
+    row-gap:10px;
+    width:100%;
+    height:70%;
+    border-radius:5%;
+    background-color:#323844;
+    padding:10px;
+}
+
+#botones button{
+    width:18%;
+    height:15%;
+    border-radius:20%;
+    border-color:none;
+    border:none;
+    background-color:#2A2E39;
+}
+
+.numeros{
+    color:#fff;
+}
+
+.orange{
+    color:#DD7961;
+}
+
+.yellow{
+    color:#FCFFA3;
+}
