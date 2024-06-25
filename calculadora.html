@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="./estilos.css">
     <script defer src="./calculadora.js"></script>
     <title>Calculadora</title>
@@ -11,8 +12,10 @@
     <div id="contenedor-principal">
         <div id="formulario">
             <div id="boton-transition">
-                <button id="light" class="ld" >L</button>
-                <button id="dark"  class="ld">D</button>
+                <button id="switch" class="switch">
+                    <span>L</span>
+                    <span>D</span>
+                </button>
             </div>
             <div id="historial">
                 <p></p>
@@ -22,9 +25,9 @@
             </form>
         </div>
         <div id="botones">
-            <button class="yellow" id="borrar">AC</button>
+            <button class="borradores" id="borrar">AC</button>
             <button class="signo">^</button>
-            <button class="yellow" id="delete">d</button>
+            <button class="borradores" id="delete">d</button>
             <button class="signo">÷</button>
 
             <button class="numeros">7</button>
@@ -47,7 +50,7 @@
             <button class="orange">R</button>
 
             <button class="numeros">0</button>
-            <button class="numeros">.</button>
+            <button class="punto">.</button>
 
             <button class="orange" id="igualdad">=</button>
         </div>

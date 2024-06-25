@@ -24,18 +24,11 @@ body{
     border-radius:5%;
     background-color:#ffffff;
     overflow:hidden;
+    transition:.8s ease all;
 }
 
-#contenedor-principal.activa{
-    animation-name:to-ligth;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
-}
-
-#contenedor-principal.inactiva{
-    animation-name:to-dark;
-    animation-duration:1000ms;
-    animation-fill-mode: forwards;
+body.dark #contenedor-principal{
+    background-color:#21242D;
 }
     
 #formulario{
@@ -45,19 +38,11 @@ body{
     width:95%;
     height:30%;
     background-color:#ffffff;
-
+    transition:.8s ease all;
 }
 
-#formulario.activa{
-    animation-name:to-ligth;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
-}
-
-#formulario.inactiva{
-    animation-name:to-dark;
-    animation-duration:1000ms;
-    animation-fill-mode: forwards;
+body.dark #formulario{
+    background-color:#21242D;
 }
 
 #boton-transition{
@@ -67,44 +52,53 @@ body{
     height:30px;
 
     display:flex;
-    justify-content:space-around;
+    justify-content:center;
     align-items:center;
-    background-color:#E4E4E4;
     padding:2px;
-    border-radius:2px;
 }
 
-#boton-transition.activa{
-    animation-name:to-lightboton;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
-}
-
-#boton-transition.inactiva{
-    animation-name:to-darkboton;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
-}
-
-#boton-transition button{
+.switch{
+    background-color:#343D5B;
+    border-radius:1000px;
     border:none;
-    background-color:#E4E4E4;
+    position:relative;
+    cursor:pointer;
+
+    display:flex;
+    outline:none;
+}
+
+.switch::after{
+    content:"";
+    display:block;
+    width:30px;
+    height:30px;
+    position:absolute;
+    background-color: #F1F1F1;
+    top:0;
+    left:0;
+    right:unset;
+    border-radius:100px;
+    transition:2s ease all;
+}
+
+.switch.active{
+    background-color:orange;
     color:#000000;
-    font-size:10px;
-    padding:4px;
-    border-radius:2px;
 }
 
-#boton-transition button.activa{
-    animation-name:to-lightboton;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
+.switch.active::after{
+    right:0;
+    left:unset;
 }
 
-#boton-transition button.inactiva{
-    animation-name:to-darkboton;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;   
+.switch span{
+    width:30px;
+    height:30px;
+    line-height:30px;
+    display:block;
+    background:none;
+    color:#ffffff;
 }
 
 #historial{
@@ -136,18 +130,12 @@ body{
     border:none;
     resize: none;
     outline:none;
+    transition:.8s ease all;
 }
 
-#campo.activa{
-    animation-name:to-ligth;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
-}
-
-#campo.inactiva{
-    animation-name:to-dark;
-    animation-duration:1000ms;
-    animation-fill-mode: forwards;
+body.dark #campo{
+    background-color:#21242D;
+    color:#ffffff;
 }
 
 #campo:focus{
@@ -166,18 +154,11 @@ body{
     border-radius:5%;
     background-color:#F5F5F5;
     padding:10px;
+    transition:.8s ease all;
 }
 
-#botones.activa{
-    animation-name:to-ligth2;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
-}
-
-#botones.inactiva{
-    animation-name:to-dark2;
-    animation-duration:1000ms;
-    animation-fill-mode: forwards;
+body.dark #botones{
+    background-color:#323844;
 }
 
 #botones button{
@@ -187,21 +168,20 @@ body{
     border-color:none;
     border:none;
     background-color:#ffffff;
-}
-#botones button.activa{
-    animation-name:to-ligth;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
+    transition:.8s ease all;
 }
 
-#botones button.inactiva{
-    animation-name:to-dark3;
-    animation-duration:1000ms;
-    animation-fill-mode:forwards;
+body.dark #botones button{
+    background-color:#2A2E39;
 }
 
 .numeros{
     color:#000000;
+    transition:.8s ease all;
+}
+
+body.dark .numeros{
+    color:#ffffff;
 }
 
 .signo{
@@ -212,75 +192,18 @@ body{
     color:#DD7961;
 }
 
-.yellow{
+.borradores{
     color:#000000;
 }
 
-@keyframes to-ligth{
-    0%{
-        background-color:#21242D;
-    }
-    100%{
-        background-color:#ffffff;
-    }
+body.dark .borradores{
+    color:#ffffff;
 }
 
-@keyframes to-ligth2{
-    0%{
-        background-color:#21242D;
-    }
-    100%{
-        background-color:#F5F5F5;
-    }
+.punto{
+    color:#000000;
 }
 
-@keyframes to-dark{
-    0%{
-        background-color:#ffffff;
-    }
-
-    100%{
-        background-color:#21242D;
-    }
-}
-
-@keyframes to-dark2{
-    0%{
-        background-color:#ffffff;
-    }
-
-    100%{
-        background-color:#323844;
-    }
-}
-
-@keyframes to-dark3{
-    0%{
-        background-color:#ffffff;
-    }
-
-    100%{
-        background-color:#2A2E39;
-    }
-}
-
-@keyframes to-lightboton{
-    0%{
-        background-color:#2A2E39;
-    }
-    
-    100%{
-        background-color:#E4E4E4;
-    }
-}
-
-
-@keyframes to-darkboton{
-    0%{
-        background-color:#E4E4E4;
-    }
-    
-    100%{
-        background-color:#2A2E39;
-    }
+body.dark .punto{
+    color:#ffffff;
 }
