@@ -4,6 +4,7 @@ let signos = document.querySelectorAll('.signo')
 let borrarUno = document.getElementById('delete')
 let historial = document.getElementById('historial')
 let punto = document.querySelector('.punto')
+let punto2 = document.querySelector('.punto activo')
 let arrSigno = ['+', '-', 'x', '÷', '^', '.']
 
 numeros.forEach((elemento) =>{
@@ -16,15 +17,22 @@ numeros.forEach((elemento) =>{
     })
 })
 
-let expresionRegular = /\.?/
-punto.addEventListener('click', () => {
-    if(!arrSigno.includes(campoOperaciones.value.slice(-1)) && campoOperaciones.value.length > 0){
-        if(expresionRegular.test(campoOperaciones.value)){
-            let textNum = punto.textContent
-            campoOperaciones.value += textNum              
-         }
-    }
-})
+let expresionRegular = /^(?!\d*\.)/
+let expresionRegular2 = /\d+\.?[-+x^÷]{1}\d*[^\.]$/ 
+let marcarPunto = () => {
+    if(expresionRegular.test(campoOperaciones.value)){
+        let textNum = punto.textContent
+        campoOperaciones.value += textNum              
+     }
+}
+
+let marcarPunto2 = () => {
+    if(expresionRegular2.test(campoOperaciones.value)){
+        let textNum = punto.textContent
+        campoOperaciones.value += textNum              
+     }
+}
+punto.addEventListener('click', marcarPunto)
 
 signos.forEach((elemento) =>{
     elemento.addEventListener('click', () => {
@@ -34,6 +42,8 @@ signos.forEach((elemento) =>{
             let textNum = elemento.textContent
             campoOperaciones.value += textNum
         }
+        punto.removeEventListener('click', marcarPunto)
+        punto.addEventListener('click', marcarPunto2)
     })
 })
 
@@ -72,6 +82,8 @@ borrarTodo.addEventListener('click', () => {
     historial.innerHTML = ""
     campoOperaciones.value = "" 
     campoOperaciones.style.fontSize = '30px'
+    punto.removeEventListener('click', marcarPunto2)
+    punto.addEventListener('click', marcarPunto)
 })
 
 let identificarEjecutar = () => {
