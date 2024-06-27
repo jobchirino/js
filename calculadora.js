@@ -52,6 +52,10 @@ borrarUno.addEventListener('click', () =>{
         let nuevoValor = campoOperaciones.value.slice(0, -1)
         campoOperaciones.value = nuevoValor
     }
+    if(arrSigno.includes(campoOperaciones.value.slice(-1))){
+        punto.removeEventListener('click', marcarPunto2)
+        punto.addEventListener('click', marcarPunto)
+    }
 })
 
 let btnTransition = document.getElementById('switch')
@@ -125,6 +129,8 @@ let identificarEjecutar = () => {
         if(campoOperaciones.value.length > 16){
             campoOperaciones.style.fontSize = '20px'
         }
+        punto.removeEventListener('click', marcarPunto2)
+        punto.addEventListener('click', marcarPunto)
         }
         
     })
