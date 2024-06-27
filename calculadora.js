@@ -6,6 +6,7 @@ let historial = document.getElementById('historial')
 let punto = document.querySelector('.punto')
 let punto2 = document.querySelector('.punto activo')
 let arrSigno = ['+', '-', 'x', '÷', '^', '.']
+let arrSigno2 = ['+', '-', 'x', '÷', '^']
 
 numeros.forEach((elemento) =>{
     elemento.addEventListener('click', () => {
@@ -52,7 +53,7 @@ borrarUno.addEventListener('click', () =>{
         let nuevoValor = campoOperaciones.value.slice(0, -1)
         campoOperaciones.value = nuevoValor
     }
-    if(arrSigno.includes(campoOperaciones.value.slice(-1))){
+    if(arrSigno2.includes(campoOperaciones.value.slice(-1))){
         punto.removeEventListener('click', marcarPunto2)
         punto.addEventListener('click', marcarPunto)
     }
